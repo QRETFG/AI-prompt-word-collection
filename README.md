@@ -32,36 +32,21 @@
 ### 1. 主界面 - 提示词列表
 
 在这里，您可以浏览所有已收藏的提示词。界面支持搜索、标签筛选和分页。
-
-<!-- 在这里插入您的主界面截图 -->
-<!-- 示例: <p align="center"><img src="https://user-images.githubusercontent.com/your-id/your-image-id.png" alt="主界面展示" width="800"/></p> -->
-<p align="center">
-  <strong>[在这里插入您的主界面截图，例如 main-view.png]</strong>
-</p>
-
+![PixPin_2025-06-12_18-23-09](https://github.com/user-attachments/assets/efe099a7-cd6a-44cc-b0ce-379ed86c9786)
 <br>
 
 ### 2. 添加与编辑提示词
 
 点击“添加新提示词”或卡片上的“编辑”按钮，会切换到此视图。
-
-<!-- 在这里插入您的添加/编辑界面截图 -->
-<!-- 示例: <p align="center"><img src="https://user-images.githubusercontent.com/your-id/your-image-id.png" alt="添加与编辑界面" width="800"/></p> -->
-<p align="center">
-  <strong>[在这里插入您的添加/编辑界面截图，例如 add-edit-view.png]</strong>
-</p>
-
+![PixPin_2025-06-12_18-23-33](https://github.com/user-attachments/assets/621dd0e7-90b3-4832-84de-f1fe720d0042)
 <br>
 
 ### 3. 提示词详情弹窗
 
 当提示词内容过长时，点击“展开”按钮会弹出此窗口，展示完整内容。
 
-<!-- 在这里插入您的详情弹窗截图 -->
-<!-- 示例: <p align="center"><img src="https://user-images.githubusercontent.com/your-id/your-image-id.png" alt="详情弹窗" width="600"/></p> -->
-<p align="center">
-  <strong>[在这里插入您的详情弹窗截图，例如 popup-view.png]</strong>
-</p>
+![PixPin_2025-06-12_18-24-09](https://github.com/user-attachments/assets/9fbb4343-ef2e-4141-ae2b-2384c8ec3747)
+
 
 ---
 
