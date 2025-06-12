@@ -71,7 +71,7 @@
 
 1.  **下载项目**:
     *   点击本页面右上角的 `Code` -> `Download ZIP`。
-    *   或者使用 Git 克隆: `git clone https://github.com/your-username/your-repo-name.git`
+    *   或者使用 Git 克隆: `git clone https://github.com/QRETFG/AI-prompt-word-collection.git`
 
 2.  **打开文件**:
     *   解压下载的 ZIP 文件。
