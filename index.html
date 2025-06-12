@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 提示词收藏夹</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>我的 AI 提示词收藏</h1>
+        <nav>
+            <button id="view-prompts-btn" class="nav-btn active">查看收藏</button>
+            <button id="add-prompt-btn" class="nav-btn">添加新提示词</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 查看提示词视图 -->
+        <div id="view-prompts-view" class="view active">
+            <section id="prompt-list-section">
+                <div class="section-header">
+                    <h2>已收藏的提示词</h2>
+                    <div class="data-management">
+                        <button id="export-data-btn" class="data-btn">导出数据</button>
+                        <button id="import-data-btn" class="data-btn">导入数据</button>
+                        <input type="file" id="import-file-input" accept=".json" style="display: none;">
+                    </div>
+                </div>
+                
+                <!-- 添加搜索过滤器 -->
+                <div class="search-filter">
+                    <input type="text" id="prompt-search" placeholder="搜索提示词..." aria-label="搜索提示词">
+                    <select id="tag-filter" aria-label="按标签筛选">
+                        <option value="">所有标签</option>
+                    </select>
+                </div>
+                
+                <ul id="prompt-list">
+                    <!-- 提示词将在这里动态添加 -->
+                    <li class="prompt-item" data-title="示例标题" data-text="这是一个示例提示词内容。如果内容很长，它会被折叠起来，需要点击展开才能看到全部。这里添加更多文字来模拟长内容。这里添加更多文字来模拟长内容。这里添加更多文字来模拟长内容。这里添加更多文字来模拟长内容。" data-tags="示例标签1,示例标签2">
+                        <h3>示例标题</h3>
+                        <div class="prompt-content">
+                            <p class="prompt-text">这是一个示例提示词内容。如果内容很长，它会被折叠起来，需要点击展开才能看到全部。这里添加更多文字来模拟长内容。这里添加更多文字来模拟长内容。这里添加更多文字来模拟长内容。这里添加更多文字来模拟长内容。</p>
+                            <button class="toggle-btn" style="display: none;">展开</button> <!-- JS会控制显示 -->
+                        </div>
+                        <div class="tags">
+                            <span>示例标签1</span>
+                            <span>示例标签2</span>
+                        </div>
+                        <div class="prompt-actions">
+                            <button class="copy-btn">复制</button>
+                            <button class="edit-btn">编辑</button>
+                            <button class="delete-btn">删除</button>
+                        </div>
+                    </li>
+                </ul>
+                <!-- 分页控件容器 -->
+                <div id="pagination-controls" class="pagination-controls"></div>
+            </section>
+        </div> <!-- 结束查看视图 -->
+
+        <!-- 添加提示词视图 -->
+        <div id="add-prompt-view" class="view">
+            <section id="add-prompt-section">
+                <h2>添加新提示词</h2>
+                <form id="add-prompt-form">
+                    <div class="form-group">
+                        <label for="prompt-title">标题:</label>
+                        <input type="text" id="prompt-title" name="prompt-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="prompt-text">提示词内容:</label>
+                        <textarea id="prompt-text" name="prompt-text" rows="6" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="prompt-tags">标签 (用逗号分隔):</label>
+                        <input type="text" id="prompt-tags" name="prompt-tags">
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit">添加收藏</button>
+                        <button type="button" id="cancel-edit-btn" style="display: none;">取消</button>
+                    </div>
+                </form>
+            </section>
+        </div> <!-- 结束添加视图 -->
+    </main>
+
+    <footer>
+        <p>&copy; 2025 AI 提示词收藏夹</p>
+    </footer>
+
+    <!-- Your custom script -->
+    <script src="script.js"></script>
+</body>
+</html>

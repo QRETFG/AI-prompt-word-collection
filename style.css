@@ -1,0 +1,778 @@
+/* --- 高级感 UI 重塑 --- */
+
+/* 1. 全局与基础样式 */
+:root {
+    --primary-color: #4a69bd; /* 柔和的专业蓝 */
+    --primary-light: #6a89cc;
+    --primary-dark: #3b5bb0;
+    --secondary-color: #f0932b; /* 温暖的强调橙 */
+    --text-color: #34495e; /* 深蓝灰色文本 */
+    --text-light: #7f8c8d; /* 浅灰文本 */
+    --bg-color: #f5f7fa; /* 非常浅的灰蓝背景 */
+    --card-bg: #ffffff; /* 卡片背景 */
+    --border-color: #e1e5ea; /* 边框颜色 */
+    --success-color: #2ecc71; /* 成功绿 */
+    --danger-color: #e74c3c; /* 危险红 */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --transition-fast: all 0.2s ease-in-out;
+    --transition-medium: all 0.3s ease-in-out;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    line-height: 1.65;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2. 头部与导航 */
+header {
+    background-color: var(--card-bg);
+    padding: 1.2rem 0;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    position: sticky; /* 可选：固定头部 */
+    top: 0;
+    z-index: 10;
+}
+
+header h1 {
+    margin: 0 0 0.8rem 0;
+    font-size: 1.7rem;
+    font-weight: 600; /* 稍加粗 */
+    color: var(--primary-dark);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.nav-btn {
+    background: none;
+    border: 1px solid transparent;
+    color: var(--text-light);
+    padding: 0.5rem 1.3rem;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition-fast);
+}
+
+.nav-btn:hover {
+    color: var(--primary-color);
+    background-color: rgba(74, 105, 189, 0.08); /* 主色调的浅背景 */
+}
+
+.nav-btn.active {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 5px rgba(74, 105, 189, 0.2);
+}
+
+/* 3. 主内容区域 */
+main {
+    max-width: 1200px; /* 增加主内容区域最大宽度 */
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+/* 章节标题容器 */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border-color);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
+    flex: 1;
+}
+
+/* 数据管理按钮组 */
+.data-management {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.data-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: var(--transition-medium);
+    box-shadow: var(--shadow-sm);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.data-btn:hover {
+    background-color: var(--primary-light);
+    box-shadow: 0 4px 12px rgba(74, 105, 189, 0.2);
+    transform: translateY(-1px);
+}
+
+.data-btn:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+#import-data-btn {
+    background-color: var(--secondary-color);
+}
+
+#import-data-btn:hover {
+    background-color: #e67e22;
+}
+
+/* 搜索过滤器样式 */
+.search-filter {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+#prompt-search {
+    flex: 3;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    font-size: 0.9rem;
+    color: var(--text-color);
+    background-color: var(--card-bg);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+}
+
+#prompt-search:focus {
+    border-color: var(--primary-color);
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(74, 105, 189, 0.15);
+}
+
+#tag-filter {
+    flex: 1;
+    min-width: 120px;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    font-size: 0.9rem;
+    color: var(--text-color);
+    background-color: var(--card-bg);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+#tag-filter:focus {
+    border-color: var(--primary-color);
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(74, 105, 189, 0.15);
+}
+
+@media (max-width: 600px) {
+    .search-filter {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    #tag-filter {
+        width: 100%;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .data-management {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .data-btn {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+/* 4. 表单样式 */
+.form-group {
+    margin-bottom: 1.8rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.7rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    background-color: var(--card-bg);
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(74, 105, 189, 0.15); /* 聚焦光晕 */
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 140px;
+    line-height: 1.6; /* 确保文本域内行高一致 */
+}
+
+/* 表单按钮容器 */
+.form-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* 提交/更新按钮 */
+button[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.9rem 2rem;
+    border: none;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: var(--transition-medium);
+    box-shadow: var(--shadow-md);
+    display: inline-flex; /* 用于可能的图标对齐 */
+    align-items: center;
+    justify-content: center;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--primary-light);
+    box-shadow: 0 7px 18px rgba(74, 105, 189, 0.2);
+    transform: translateY(-2px);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+/* 取消按钮 */
+#cancel-edit-btn {
+    background-color: transparent;
+    color: var(--text-light);
+    padding: 0.9rem 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: var(--transition-medium);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cancel-edit-btn:hover {
+    background-color: rgba(231, 76, 60, 0.1);
+    border-color: var(--danger-color);
+    color: var(--danger-color);
+    transform: translateY(-2px);
+}
+
+#cancel-edit-btn:active {
+    transform: translateY(0);
+}
+
+/* 5. 提示词列表项 (卡片化) */
+#prompt-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.prompt-item {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg); /* 更大的圆角 */
+    padding: 1.5rem; /* 减少一点内边距 */
+    margin-bottom: 0; /* 网格布局不需要 */
+    transition: var(--transition-medium);
+    box-shadow: var(--shadow-md);
+    position: relative; /* 用于按钮定位 */
+    overflow: hidden; /* 配合圆角 */
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* 确保所有卡片高度一致 */
+}
+
+.prompt-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(74, 105, 189, 0.3);
+}
+
+.prompt-item h3 {
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    color: var(--primary-dark);
+    font-weight: 600;
+    font-size: 1.1rem; /* 稍微减小标题 */
+    line-height: 1.3;
+}
+
+.prompt-content {
+    margin-bottom: 1rem;
+    flex: 1; /* 让内容区域占用所有可用空间 */
+    position: relative; /* 为展开内容定位提供基础 */
+}
+
+.prompt-text {
+    margin: 0;
+    color: var(--text-light);
+    font-size: 0.92rem;
+    overflow: hidden;
+    max-height: 4.9em; /* 大约三行高度 */
+    position: relative;
+    transition: max-height 0.4s ease-out;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: 1.6;
+}
+
+.prompt-text.expanded::before {
+    display: none; /* 移除半透明遮罩 */
+}
+
+.prompt-text.expanded {
+    max-height: none;
+    position: fixed; /* 改为固定定位，不受滚动影响 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 居中显示 */
+    width: 80%; /* 控制宽度 */
+    max-width: 600px;
+    background-color: var(--card-bg);
+    z-index: 100;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    padding: 1.8rem;
+    margin: 0;
+    max-height: 70vh; /* 限制最大高度 */
+    overflow-y: auto;
+    transition: all 0.3s ease-in-out;
+}
+
+/* 为弹出窗口添加美观的标题和内容布局 */
+.prompt-popup-header {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.prompt-popup-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--primary-dark);
+}
+
+.prompt-popup-content {
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.prompt-popup-tags {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.prompt-popup-tags span {
+    display: inline-block;
+    background-color: rgba(74, 105, 189, 0.1);
+    color: var(--primary-color);
+    padding: 0.35rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.prompt-popup-footer {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+/* 展开/折叠按钮 */
+.toggle-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 0.4rem 0;
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: none; /* JS 控制 */
+    transition: var(--transition-fast);
+    position: relative;
+    z-index: 11;
+}
+
+.toggle-btn:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* 关闭按钮 */
+.close-popup-btn {
+    position: absolute; /* 改为绝对定位，相对于弹窗定位 */
+    top: 15px; /* 距离顶部15px */
+    right: 15px; /* 距离右侧15px */
+    background-color: #f5f5f5;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0;
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition-fast);
+    z-index: 1001; /* 确保始终在顶层 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.close-popup-btn:hover {
+    color: #fff;
+    background-color: var(--danger-color);
+    transform: rotate(90deg);
+}
+
+/* 标签样式 */
+.tags {
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tags span {
+    display: inline-block;
+    background-color: rgba(74, 105, 189, 0.1);
+    color: var(--primary-color);
+    padding: 0.25rem 0.7rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* 提示词操作按钮 */
+.prompt-actions {
+    margin-top: auto; /* 推到卡片底部 */
+    display: flex;
+    justify-content: space-between; /* 布局更合理 */
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.prompt-actions button {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-light);
+    padding: 0.35rem 0.8rem;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    flex: 1; /* 按钮平分可用空间 */
+    justify-content: center;
+    min-width: 65px;
+}
+
+/* 可选：添加图标 (需要 HTML 配合或伪元素) */
+/* .copy-btn::before { content: '📋'; margin-right: 0.3rem; } */
+/* .edit-btn::before { content: '✏️'; margin-right: 0.3rem; } */
+/* .delete-btn::before { content: '🗑️'; margin-right: 0.3rem; } */
+
+.prompt-actions .copy-btn {
+    /* 基础样式继承自 .prompt-actions button */
+    /* 可以添加特定颜色或图标 */
+    border-color: var(--success-color); /* 使用成功绿色边框 */
+    color: var(--success-color);
+}
+
+.prompt-actions .copy-btn:hover {
+    background-color: rgba(46, 204, 113, 0.1); /* 悬停时淡绿色背景 */
+    border-color: var(--success-color);
+    color: var(--success-color);
+}
+
+.prompt-actions .copy-btn:disabled { /* 复制成功后的禁用状态 */
+    opacity: 0.7;
+    cursor: default;
+    background-color: rgba(46, 204, 113, 0.1);
+}
+
+
+.prompt-actions .edit-btn:hover {
+    background-color: rgba(74, 105, 189, 0.08);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.prompt-actions .delete-btn {
+    border-color: rgba(231, 76, 60, 0.5); /* 淡红色边框 */
+    color: var(--danger-color);
+}
+
+.prompt-actions .delete-btn:hover {
+    background-color: rgba(231, 76, 60, 0.1); /* 淡红色背景 */
+    border-color: var(--danger-color);
+    color: var(--danger-color);
+}
+
+/* 6. 视图切换 */
+.view {
+    display: none;
+}
+
+.view.active {
+    display: block;
+    animation: viewFadeIn 0.6s ease-out;
+}
+
+@keyframes viewFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 7. 页脚 */
+footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 2rem 0;
+    color: var(--text-light);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--card-bg); /* 页脚也给个背景 */
+}
+
+/* 8. 响应式调整 (可选，基本示例) */
+@media (min-width: 1200px) {
+    #prompt-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1199px) and (min-width: 768px) {
+    #prompt-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    main {
+        margin: 1rem auto;
+        padding: 1rem;
+    }
+    
+    #prompt-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .prompt-item {
+        padding: 1.2rem;
+    }
+    
+    header h1 {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .nav-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .pagination-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* 分页控件样式 */
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0 1rem;
+    gap: 1rem;
+}
+
+.pagination-btn {
+    padding: 0.7rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: var(--transition-medium);
+    box-shadow: var(--shadow-sm);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background-color: var(--primary-light);
+    box-shadow: 0 4px 12px rgba(74, 105, 189, 0.2);
+    transform: translateY(-1px);
+}
+
+.pagination-btn:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+.pagination-btn:disabled {
+    background-color: rgba(74, 105, 189, 0.3);
+    cursor: not-allowed;
+    opacity: 0.7;
+    box-shadow: none;
+}
+
+.page-info {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 0 10px;
+}
+
+.copy-popup-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition-fast);
+}
+
+.copy-popup-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.copy-popup-btn:disabled {
+    opacity: 0.7;
+    cursor: default;
+    background-color: var(--primary-light);
+}
+
+/* 弹窗相关样式 */
+#prompt-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: 2rem;
+    z-index: 1000;
+    border: 1px solid var(--border-color);
+}
+
+/* 弹窗遮罩层 */
+#popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    cursor: pointer;
+}
