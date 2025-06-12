@@ -32,7 +32,8 @@
 ### 1. 主界面 - 提示词列表
 
 在这里，您可以浏览所有已收藏的提示词。界面支持搜索、标签筛选和分页。
-![PixPin_2025-06-12_18-23-09](https://github.com/user-attachments/assets/efe099a7-cd6a-44cc-b0ce-379ed86c9786)
+![PixPin_2025-06-12_18-30-38](https://github.com/user-attachments/assets/be2e3ad8-8c60-443e-8de9-4ab6b6bfe118)
+
 <br>
 
 ### 2. 添加与编辑提示词
@@ -45,7 +46,7 @@
 
 当提示词内容过长时，点击“展开”按钮会弹出此窗口，展示完整内容。
 
-![PixPin_2025-06-12_18-24-09](https://github.com/user-attachments/assets/9fbb4343-ef2e-4141-ae2b-2384c8ec3747)
+![PixPin_2025-06-12_18-30-59](https://github.com/user-attachments/assets/2d4e2a65-b2e0-4807-af42-d36995009631)
 
 
 ---
